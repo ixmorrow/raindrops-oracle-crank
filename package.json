@@ -5,9 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsc && node build/index.js",
-    "dev": "tsc -w & nodemon build/index.js"
+    "start": "node build/index.js",
+    "postinstall": "tsc",
+    "dev": "tsc && node build/index.js"
   },
+  "engines": { "node": "17.3.0" },
   "author": "",
   "license": "ISC",
   "devDependencies": {
