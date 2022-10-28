@@ -5,7 +5,7 @@ import dotenv from 'dotenv'
 const bodyParser = require("body-parser")
 const app = express()
 dotenv.config()
-const port = 3000 || process.env.PORT
+const port = process.env.PORT || 3000
 
 app.use(bodyParser.urlencoded({ extended: false }))
 
