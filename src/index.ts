@@ -13,12 +13,6 @@ const port = process.env.PORT || 3000
 
 scheduledFunctions.initScheduledJobs()
 
-app.get('/', (req, res) => {
-    res.send({
-        message: "hello"
-    })
-})
-
 app.post('/addContest', (req, res) => {
     console.log(req.body)
     const contest = Contest.create({ 
@@ -33,7 +27,7 @@ app.post('/addContest', (req, res) => {
     })
 })
 
-app.get('/getContest', async (req, res) => {
+app.get('/getContestEndTime', async (req, res) => {
     
     let contest = await Contest.findAll({
         where: {
