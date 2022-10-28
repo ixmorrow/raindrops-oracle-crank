@@ -35,6 +35,20 @@ app.post('/addContest', (req, res) => {
     })
 })
 
+app.get('/getContest', async (req, res) => {
+    
+    let contest = await Contest.findAll({
+        where: {
+            contestPubkey: req.query.contest
+        }
+    })
+
+    console.log(contest[0].dataValues.endTime)
+    res.send({
+        contestEndtime: contest[0].dataValues.endTime
+    })
+})
+
 app.get('/purgeTable', async (req, res) => {
     await Contest.destroy({
         truncate: true

@@ -11,7 +11,6 @@ const cluster = clusterApiUrl("devnet")
 const connection = new Connection(cluster)
 const wallet = new anchor.Wallet(programAuthority)
 const provider = new anchor.AnchorProvider(connection, wallet, {commitment: "confirmed"})
-//const program = anchor.workspace.EventsOracle as anchor.Program<EventsOracle>
 const program = new anchor.Program(
     ContestsIdl as anchor.Idl,
     programId,
@@ -51,6 +50,7 @@ export async function fetchOpenContests() {
 
             console.log("Event Ended:")
             console.log(tx)
+
             // remove entry from table
             await Contest.destroy({
                 where: {

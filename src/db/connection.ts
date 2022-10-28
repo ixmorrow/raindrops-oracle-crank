@@ -6,8 +6,8 @@ export const sequelize = new Sequelize('d7h1c3hu4fa8ke', 'zyxrejtagrdmoy', 'c08d
     logging: false,
     dialectOptions: {
         ssl: {
-          require: true, // This will help you. But you will see nwe error
-          rejectUnauthorized: false // This line will fix new error
+            require: true,
+            rejectUnauthorized: false
         }
     },
 })
