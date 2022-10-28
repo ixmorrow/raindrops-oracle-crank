@@ -35,12 +35,20 @@ app.post('/addContest', (req, res) => {
     })
 })
 
-app.get('/fetchContests', async (req, res) => {
-    // await Contest.destroy({
-    //     truncate: true
-    // })
+app.get('/purgeTable', async (req, res) => {
+    await Contest.destroy({
+        truncate: true
+    })
     res.send({
         message: "contests fetched"
+    })
+})
+
+app.get('/fetchActiveContests', async (req, res) => {
+    const ActiveContests = await Contest.findAll()
+    console.log("All users:", JSON.stringify(ActiveContests, null, 2))
+    res.send({
+        contests: JSON.stringify(ActiveContests, null, 2)
     })
 })
 

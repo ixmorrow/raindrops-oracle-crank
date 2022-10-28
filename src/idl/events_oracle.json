@@ -157,6 +157,11 @@
           "isSigner": true
         },
         {
+          "name": "creator",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
           "name": "event",
           "isMut": true,
           "isSigner": false
@@ -434,6 +439,6 @@
     }
   ],
   "metadata": {
-    "address": "887fNBoewDudLs7GUdEBFfpMZ9EmcFREK9Gmr3KY6pS7"
+    "address": "HbR4nXvUASns7kybpVN8CNggykFhgtHQThvMZv3AihBw"
   }
 }

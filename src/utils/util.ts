@@ -1,5 +1,5 @@
 import * as anchor from '@project-serum/anchor'
-import { PublicKey, Keypair, Connection, clusterApiUrl } from '@solana/web3.js'
+import { PublicKey, Keypair, Connection, LAMPORTS_PER_SOL } from '@solana/web3.js'
 
 
 export const programAuthority = Keypair.fromSecretKey(Uint8Array.from([
@@ -10,3 +10,15 @@ export const programAuthority = Keypair.fromSecretKey(Uint8Array.from([
     11, 207, 223, 197, 110,  46, 145, 187, 243, 157, 140,
     26,  22,  95, 234,  70,  65,  15, 204, 103
 ]))
+
+export async function safeAirdrop(address: PublicKey, connection: Connection) {
+    const acctInfo = await connection.getAccountInfo(address, "confirmed")
+
+    if (acctInfo == null || acctInfo.lamports < LAMPORTS_PER_SOL) {
+        let signature = await connection.requestAirdrop(
+            address,
+            LAMPORTS_PER_SOL
+        )
+        await connection.confirmTransaction(signature)
+    }
+}
