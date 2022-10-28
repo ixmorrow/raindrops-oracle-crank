@@ -27,8 +27,6 @@ app.post('/addContest', (req, res) => {
         pythPriceFeed: req.body.priceFeed,
         endTime: req.body.endTime
     })
-    console.log(contest instanceof Contest)
-    console.log(contest.contestPubkey)
 
     res.send({
         status: "success"

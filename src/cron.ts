@@ -37,6 +37,9 @@ export async function fetchOpenContests() {
             let priceFeed = new PublicKey(activeContests[i].dataValues.pythPriceFeed)
             let creator = new PublicKey(activeContests[i].dataValues.creator)
 
+            console.log("Current unix time: ", currentUnixTime)
+            console.log("Contest end time: ", activeContests[i].dataValues.endTime)
+
             // close the contest
             const tx = await program.methods.endEvent()
             .accounts({
