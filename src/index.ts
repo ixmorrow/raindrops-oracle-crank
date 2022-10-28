@@ -1,9 +1,12 @@
 import express from 'express'
 import { Contest } from './db/connection'
+import dotenv from 'dotenv'
 
 const bodyParser = require("body-parser")
 const app = express()
-const port = 3000
+dotenv.config()
+const port = 3000 || process.env.PORT
+
 app.use(bodyParser.urlencoded({ extended: false }))
 
 app.get('/', (req, res) => {
