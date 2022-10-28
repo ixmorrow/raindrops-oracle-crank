@@ -11,7 +11,7 @@ app.use(bodyParser.json())
 dotenv.config()
 const port = process.env.PORT || 3000
 
-//scheduledFunctions.initScheduledJobs()
+scheduledFunctions.initScheduledJobs()
 
 app.get('/', (req, res) => {
     res.send({
@@ -35,8 +35,10 @@ app.post('/addContest', (req, res) => {
     })
 })
 
-app.get('/fetchContests', (req, res) => {
-    fetchOpenContests()
+app.get('/fetchContests', async (req, res) => {
+    // await Contest.destroy({
+    //     truncate: true
+    // })
     res.send({
         message: "contests fetched"
     })
