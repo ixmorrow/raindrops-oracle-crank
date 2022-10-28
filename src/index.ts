@@ -6,10 +6,11 @@ import { fetchOpenContests } from './cron'
 const scheduledFunctions = require('./cron')
 const bodyParser = require("body-parser")
 const app = express()
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 dotenv.config()
 const port = process.env.PORT || 3000
 
-app.use(bodyParser.urlencoded({ extended: false }))
 //scheduledFunctions.initScheduledJobs()
 
 app.get('/', (req, res) => {
