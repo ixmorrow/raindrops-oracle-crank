@@ -1,5 +1,5 @@
 # Raindrops Contest Crank
-This repo is a service deployed on Heroku to serve as a crank on the (Raindrops Contest program)[https://github.com/ixmorrow/raindrops-contests].
+This repo is a service deployed on Heroku to serve as a crank on the [Raindrops Contest program](https://github.com/ixmorrow/raindrops-contests).
 
 When a new contest is created with the program, a POST request should also be sent to the `/addContest` endpoint of this service's API. This lets the crank know about a new contest it should monitor.
 
